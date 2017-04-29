@@ -1,0 +1,12 @@
+#landing-header {
+    position: relative;
+    /*This will get it centered horizontally*/
+    text-align: center;
+    /*This will get it centered vertically*/
+    padding-top:  40vh;
+}
+
+#landing-header h1 {
+    font-size: 60px;
+    color: #fff;
+}
