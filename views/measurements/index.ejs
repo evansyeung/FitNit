@@ -1,6 +1,24 @@
 <% include ../partials/header %>
-<div class="container">
-    <a class="btn btn-primary btn-large" href="/measurements/new">Add New Measurement</a>
-</div>
+    <header class="jumbotron">
+            <div class="container">
+                <h1>Welcome to YelpCamp!</h1>
+                <p>View our hand-picked campgrounds from all over the world</p>
+                <!--we are using a block p just for spacing-->
+                <p>
+                    <a class="btn btn-primary btn-large" href="/campgrounds/new">Add New Campground</a>
+                </p>
+            </div>
+    </header>
+    <div class="container">
+        <% measurements.forEach(function(measurement){ %>
+            <h3><%= measurement.height %></h3>
+            <h3><%= measurement.weight %></h3>
+            <h3><%= measurement.chest %></h3>
+            <h3><%= measurement.waist %></h3>
+            <h3><%= measurement.hip %></h3>
+            <h3><%=  moment(measurement.createdAt).format("MMM-DD-YYYY") %></h3>
+        <% }) %>
+        <a class="btn btn-primary btn-large" href="/measurements/new">Add New Measurement</a>
+    </div>
 
 <% include ../partials/footer %>
