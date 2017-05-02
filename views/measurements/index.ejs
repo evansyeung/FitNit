@@ -1,24 +1,33 @@
 <% include ../partials/header %>
     <header class="jumbotron">
             <div class="container">
-                <h1>Welcome to YelpCamp!</h1>
-                <p>View our hand-picked campgrounds from all over the world</p>
+                <h1>Welcome to FitNit!</h1>
+                <p>Here are your measurements</p>
                 <!--we are using a block p just for spacing-->
                 <p>
-                    <a class="btn btn-primary btn-large" href="/campgrounds/new">Add New Campground</a>
+                    <a class="btn btn-primary btn-large" href="/measurements/new">Add New Measurement</a>
                 </p>
             </div>
     </header>
     <div class="container">
-        <% measurements.forEach(function(measurement){ %>
-            <h3><%= measurement.height %></h3>
-            <h3><%= measurement.weight %></h3>
-            <h3><%= measurement.chest %></h3>
-            <h3><%= measurement.waist %></h3>
-            <h3><%= measurement.hip %></h3>
-            <h3><%=  moment(measurement.createdAt).format("MMM-DD-YYYY") %></h3>
-        <% }) %>
-        <a class="btn btn-primary btn-large" href="/measurements/new">Add New Measurement</a>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Weight</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < measurements.length; i++) { %>
+                        <tr>
+                            <td scope="row"><%= i+1 %></td>
+                            <td><%=  moment(measurements[i].createdAt).format("MMM-DD-YYYY") %></td>
+                            <td><%= measurements[i].weight %><a class="btn btn-primary btn-sm pull-right" href="#">View <i class="fa fa-angle-double-right"></i></a></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+        </table>
     </div>
 
 <% include ../partials/footer %>
