@@ -33,6 +33,16 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Every single route we run this middleware function
+app.use(function(req, res, next) {
+    // Whatever we put in res.locals is what is available in our template
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    // Need this to move onto next function
+    next();
+});
+
 // ROUTES files
 app.use(indexRoutes);
 app.use("/measurements", measurementRoutes);
