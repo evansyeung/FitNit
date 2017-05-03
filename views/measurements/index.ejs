@@ -23,7 +23,7 @@
                         <tr>
                             <td scope="row"><%= i+1 %></td>
                             <td><%= moment(measurements[i].createdAt).format("MMM DD, YYYY") %></td>
-                            <td><%= measurements[i].weight %><a class="btn btn-primary btn-sm pull-right" href="/measurements/<%= measurements[i]._id %>">View <i class="fa fa-angle-double-right"></i></a></td>
+                            <td><%= measurements[i].weight %><a class="btn btn-success btn-sm pull-right" href="/measurements/<%= measurements[i]._id %>">More Info <i class="fa fa-arrow-circle-right "></i></a></td>
                         </tr>
                     <% } %>
                 </tbody>
@@ -34,7 +34,6 @@
     
     <!--Create weight line chart-->
     <script>
-        console.log(<%=moment(measurements[0].createdAt)%>);
         var ctx = document.getElementById('myChart').getContext('2d');
         var data = {
             labels: [],

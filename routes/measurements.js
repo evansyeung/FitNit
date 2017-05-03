@@ -78,4 +78,17 @@ router.put("/:id", function(req, res){
     });
 });
 
+// DESTROY ROUTE
+router.delete("/:id", function(req, res){
+    Measurement.findByIdAndRemove(req.params.id, function(err){
+        if(err) {
+            //req.flash("error", "Something went wrong");
+            res.redirect("/measurements");
+        } else {
+            //req.flash("success", "Successfully deleted campground");
+            res.redirect("/measurements");
+        }
+    });
+});
+
 module.exports = router;
