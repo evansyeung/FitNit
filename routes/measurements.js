@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var Measurement = require("../models/measurements");
+var Measurement = require("../models/measurement");
 
 // INDEX ROUTE
 router.get("/", function(req, res){
