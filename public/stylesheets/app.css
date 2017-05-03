@@ -12,3 +12,9 @@ canvas {
 	max-height: 600px;
 	max-width: 600px;
 }
+
+.navbar-header img {
+	height: 30px;
+	width: 30px;
+	margin-top: -5px;
+}
