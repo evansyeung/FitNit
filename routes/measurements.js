@@ -52,4 +52,30 @@ router.get("/:id", function(req, res) {
     })
 });
 
+// EDIT ROUTE
+router.get("/:id/edit", function(req, res){
+    // If we get to this point, that means we've already checked ownership and made it through
+    Measurement.findById(req.params.id, function(err, foundMeasurement){
+        // We can add these flash errors in wherever, for example:
+        if(err) {
+            req.flash("error", "Measurement does not exist");
+            res.redirect("back");
+        }
+        res.render("measurements/edit", {measurement: foundMeasurement});
+    });
+});
+
+// UPDATE CAMPGROUND ROUTE
+router.put("/:id", function(req, res){
+    // find and update the correct campground
+    Measurement.findByIdAndUpdate(req.params.id, req.body.measurement, function(err, updatedMeasurement){
+       if(err){
+           res.redirect("/measurements");
+       } else {
+           //redirect somewhere(show page)
+           res.redirect("/measurements/" + req.params.id);
+       }
+    });
+});
+
 module.exports = router;
