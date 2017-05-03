@@ -9,27 +9,26 @@
                 </p>
             </div>
     </header>
-    <div class="container">
-        <table class="table table-hover table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Date</th>
-                    <th>Weight</th>
-                </tr>
-            </thead>
-                <tbody>
-                    <% for(var i = 0; i < measurements.length; i++) { %>
-                        <tr>
-                            <td scope="row"><%= i+1 %></td>
-                            <td><%= moment(measurements[i].createdAt).format("MMM DD, YYYY") %></td>
-                            <td><%= measurements[i].weight %><a class="btn btn-success btn-sm pull-right" href="/measurements/<%= measurements[i]._id %>">More Info <i class="fa fa-arrow-circle-right "></i></a></td>
-                        </tr>
-                    <% } %>
-                </tbody>
-        </table>
-        <canvas id="myChart" width="600" height="600"></canvas>
-    </div>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Weight</th>
+            </tr>
+        </thead>
+            <tbody>
+                <% for(var i = 0; i < measurements.length; i++) { %>
+                    <tr>
+                        <td scope="row"><%= i+1 %></td>
+                        <td><%= moment(measurements[i].createdAt).format("MMM DD, YYYY") %></td>
+                        <td><%= measurements[i].weight %><a class="btn btn-success btn-sm pull-right" href="/measurements/<%= measurements[i]._id %>">More Info <i class="fa fa-arrow-circle-right "></i></a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+    </table>
+    <canvas id="myChart" width="600" height="600"></canvas>
+        
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
     
     <!--Create weight line chart-->
