@@ -41,4 +41,15 @@ router.get("/new", function(req, res) {
     res.render("measurements/new");
 });
 
+// SHOW ROUTE
+router.get("/:id", function(req, res) {
+    Measurement.findById(req.params.id, function(err, foundMeasurement){
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("measurements/show", {measurement: foundMeasurement})
+        }
+    })
+});
+
 module.exports = router;

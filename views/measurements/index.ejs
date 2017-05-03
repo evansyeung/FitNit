@@ -17,13 +17,13 @@
                     <th>Date</th>
                     <th>Weight</th>
                 </tr>
-                </thead>
+            </thead>
                 <tbody>
                     <% for(var i = 0; i < measurements.length; i++) { %>
                         <tr>
                             <td scope="row"><%= i+1 %></td>
-                            <td><%= moment(measurements[i].createdAt).format("MMM DD YYYY") %></td>
-                            <td><%= measurements[i].weight %><a class="btn btn-primary btn-sm pull-right" href="#">View <i class="fa fa-angle-double-right"></i></a></td>
+                            <td><%= moment(measurements[i].createdAt).format("MMM DD, YYYY") %></td>
+                            <td><%= measurements[i].weight %><a class="btn btn-primary btn-sm pull-right" href="/measurements/<%= measurements[i]._id %>">View <i class="fa fa-angle-double-right"></i></a></td>
                         </tr>
                     <% } %>
                 </tbody>
@@ -34,6 +34,7 @@
     
     <!--Create weight line chart-->
     <script>
+        console.log(<%=moment(measurements[0].createdAt)%>);
         var ctx = document.getElementById('myChart').getContext('2d');
         var data = {
             labels: [],
@@ -66,7 +67,7 @@
                     xAxes: [{
                         type: 'time',
                         time: {
-                            displayFormates: {
+                            displayFormats: {
                                 day: 'MMM DD'
                             }
                         },
@@ -78,7 +79,7 @@
         <% measurements.forEach(function(measurement){ %>
             data.labels.push('Jan');
             data.datasets[0].data.push(<%= measurement.weight %>);
-       <% }) %>
+        <% }) %>
        
        var myChart = new Chart(ctx, {
            type: 'line',
