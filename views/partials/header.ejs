@@ -25,7 +25,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="<%= typeof page !== 'undefined' && page === 'measurements' ? 'active' : '' %>"><a href="#">Home</a></li>
+                <li class="<%= typeof page !== 'undefined' && page === 'workout-programs' ? 'active' : '' %>"><a href="/workout-programs">Home</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <% if(!currentUser) { %>
@@ -37,7 +37,7 @@
                     <ul class="dropdown-menu">
                       <li><a href="/measurements">Measurements</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="#">Workouts</a></li>
+                      <li><a href="#">Programs</a></li>
                       <li role="separator" class="divider"></li>
                       <li><a href="#">Account Settings</a></li>
                     </ul>

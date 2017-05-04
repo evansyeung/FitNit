@@ -10,7 +10,8 @@ var express         = require("express"),
     User            = require("./models/user");
 
 var indexRoutes             = require("./routes/index"),
-    measurementRoutes       = require("./routes/measurements");
+    measurementRoutes       = require("./routes/measurements"),
+    workOutRoutes           = require("./routes/programs");
 
 mongoose.connect("mongodb://localhost/fitnit");
 
@@ -46,6 +47,7 @@ app.use(function(req, res, next) {
 // ROUTES files
 app.use(indexRoutes);
 app.use("/measurements", measurementRoutes);
+app.use("/workout-programs", workOutRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("FitNit Server Has Started!");
