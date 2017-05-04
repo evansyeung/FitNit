@@ -65,7 +65,6 @@ router.get("/:id", middleware.isLoggedIn, function(req, res) {
 router.get("/:id/edit", middleware.checkMeasurementOwnership, function(req, res){
     // If we get to this point, that means we've already checked ownership and made it through
     Measurement.findById(req.params.id, function(err, foundMeasurement){
-        // We can add these flash errors in wherever, for example:
         if(err) {
             req.flash("error", "Measurement does not exist");
             res.redirect("back");
