@@ -14,7 +14,7 @@ router.get("/", function(req, res) {
 
 // SHOW ROUTE - registration form
 router.get("/register", function(req, res){
-   res.render("register", {page: 'register'}); 
+    res.render("register", {page: 'register'}); 
 });
 
 router.post("/register", function(req, res){
@@ -27,11 +27,12 @@ router.post("/register", function(req, res){
     User.register(newUser, req.body.password, function(err, user){
        if(err) {
            console.log(err);
+           req.flash("error", err.message);
            return res.redirect("register");
        }
        
        passport.authenticate("local")(req, res, function(){
-            //req.flash("success", "Welcome to YelpCamp " + user.username)
+            req.flash("success", "Welcome to FitNit " + user.username)
             res.redirect("/measurements");
        });
     });
@@ -51,15 +52,17 @@ router.get("/login", function(req, res){
 router.post("/login", passport.authenticate("local", 
     {
         successRedirect: "/measurements",
-        failureRedirect: "/login"
+        failureRedirect: "/login",
+        failureFlash: true,
+        successFlash: 'Welcome to FitNit!'
     }), function(req, res){
 });
 
 // logout route
 router.get("/logout", function(req, res){
    req.logout();
-   //req.flash("success", "Logged you out!");
-   res.redirect("/measurements");
+   req.flash("success", "Logged you out!");
+   res.redirect("/login");
 });
 
 module.exports = router;

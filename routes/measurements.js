@@ -75,13 +75,13 @@ router.get("/:id/edit", middleware.checkMeasurementOwnership, function(req, res)
 });
 
 // UPDATE CAMPGROUND ROUTE
-router.put("/:id", function(req, res){
+router.put("/:id", middleware.checkMeasurementOwnership, function(req, res){
     // find and update the correct campground
     Measurement.findByIdAndUpdate(req.params.id, req.body.measurement, function(err, updatedMeasurement){
        if(err){
            res.redirect("/measurements");
        } else {
-           //redirect somewhere(show page)
+           req.flash("success", "Successfully edited measurement");
            res.redirect("/measurements/" + req.params.id);
        }
     });
@@ -91,10 +91,10 @@ router.put("/:id", function(req, res){
 router.delete("/:id", middleware.checkMeasurementOwnership, function(req, res){
     Measurement.findByIdAndRemove(req.params.id, function(err){
         if(err) {
-            //req.flash("error", "Something went wrong");
+            req.flash("error", "Something went wrong");
             res.redirect("/measurements");
         } else {
-            //req.flash("success", "Successfully deleted campground");
+            req.flash("success", "Successfully deleted measurement");
             res.redirect("/measurements");
         }
     });

@@ -39,4 +39,19 @@
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
+        <!--Use bootstrap to style the alert-->
+        <div class="container">
+            <!--Even when error is empty it is still not set to undefined it is set to [] (empty array which is not falsfy)-->
+            <!--Thus we need to check for length also-->
+            <% if(error && error.length > 0) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0) { %>
+                <div class="alert alert-success" role="alert">
+                    <%= success %>
+                </div>
+            <% } %>
+        </div>
         <div class="container">

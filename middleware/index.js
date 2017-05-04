@@ -7,11 +7,7 @@ middlewareObj.isLoggedIn = function(req, res, next) {
     if(req.isAuthenticated()) {
         return next();
     }
-    // flash(any name, message)
-    // You do it before you redirect because it only shows on the next page
-    // You still need handle it in the route and view template
-    // This req.flash handles all routes that uses isLoggedIn()
-    //req.flash("error", "You need to be logged in to do that");
+    req.flash("error", "You need to be logged in to do that");
     res.redirect("/login");
 }
 
@@ -20,7 +16,7 @@ middlewareObj.checkMeasurementOwnership = function(req, res, next) {
     if(req.isAuthenticated()){
         Measurement.findById(req.params.id, function(err, foundMeasurement){
           if(err) {
-            //   req.flash("error", "Measurement not found");
+            req.flash("error", "Measurement not found");
             res.redirect("back");
           } else {
               if(foundMeasurement.author.id.equals(req.user._id)) {
@@ -31,6 +27,9 @@ middlewareObj.checkMeasurementOwnership = function(req, res, next) {
               }
           }
         });
+    } else {
+        req.flash("error", "You need to be logged in to do that");
+        res.redirect("back");
     }
 }
 
