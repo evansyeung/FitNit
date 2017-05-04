@@ -1,10 +1,15 @@
 var express = require("express");
+var mongoose = require('mongoose');
 var router = express.Router();
 var Measurement = require("../models/measurement");
 
+var middleware = require("../middleware");
+
 // INDEX ROUTE
-router.get("/", function(req, res){
-    Measurement.find({}, function(err, allMeasurements){
+router.get("/", middleware.isLoggedIn, function(req, res){
+    var id = mongoose.Types.ObjectId(req.user._id);
+    var username = req.user.username;
+    Measurement.find({"author" : { "id" : id, "username" : username }}, function(err, allMeasurements){
         if(err) {
             console.log(err);
         } else {
@@ -14,7 +19,7 @@ router.get("/", function(req, res){
 });
 
 // CREATE ROUTE
-router.post("/", function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
     // Get data from form and create new measurement object
     var date = req.body.date;
     var height = req.body.height;
@@ -22,27 +27,31 @@ router.post("/", function(req, res) {
     var chest = req.body.chest;
     var waist = req.body.waist;
     var hip = req.body.hip;
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    };
     
-    var newMeasurement = {createdAt: date, height: height, weight: weight, chest: chest, waist: waist, hip: hip};
+    var newMeasurement = {createdAt: date, height: height, weight: weight, chest: chest, waist: waist, hip: hip, author:author};
     
     // Create new measurement to add to DB
     Measurement.create(newMeasurement, function(err, measurement) {
         if(err) {
             console.log(err);
         } else {
-            console.log(measurement);
+            // console.log(measurement);
             res.redirect("/measurements");
         }
     });
 });
 
 // NEW ROUTE
-router.get("/new", function(req, res) {
+router.get("/new", middleware.isLoggedIn, function(req, res) {
     res.render("measurements/new");
 });
 
 // SHOW ROUTE
-router.get("/:id", function(req, res) {
+router.get("/:id", middleware.isLoggedIn, function(req, res) {
     Measurement.findById(req.params.id, function(err, foundMeasurement){
         if(err) {
             console.log(err);
@@ -53,7 +62,7 @@ router.get("/:id", function(req, res) {
 });
 
 // EDIT ROUTE
-router.get("/:id/edit", function(req, res){
+router.get("/:id/edit", middleware.checkMeasurementOwnership, function(req, res){
     // If we get to this point, that means we've already checked ownership and made it through
     Measurement.findById(req.params.id, function(err, foundMeasurement){
         // We can add these flash errors in wherever, for example:
@@ -79,7 +88,7 @@ router.put("/:id", function(req, res){
 });
 
 // DESTROY ROUTE
-router.delete("/:id", function(req, res){
+router.delete("/:id", middleware.checkMeasurementOwnership, function(req, res){
     Measurement.findByIdAndRemove(req.params.id, function(err){
         if(err) {
             //req.flash("error", "Something went wrong");
