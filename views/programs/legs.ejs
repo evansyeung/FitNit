@@ -1,7 +1,7 @@
 <% include ../partials/header %>
-    <h1>Chest Programs</h1>
+    <h1>Leg Programs</h1>
     <a class="btn btn-primary btn-large title-Button" href="/workout-programs/new">Add New Program</a>
-    <table id="chestTable" class="table table-hover table-striped">
+    <table id="legTable" class="table table-hover table-striped">
         <col width="75">
         <col width="370">
         <col width="500">
@@ -13,18 +13,18 @@
             </tr>
         </thead>
         <tbody>
-            <% for(var i = 0; i < chestPrograms.length; i++) { %>
+            <% for(var i = 0; i < legPrograms.length; i++) { %>
                 <tr>
                     <td scope="row"><%= i+1 %></td>
                     <td>
-                        <a href="/workout-programs/chest/<%= chestPrograms[i]._id %>">
-                            <strong><%= chestPrograms[i].name %></strong>
+                        <a href="/workout-programs/legs/<%= legPrograms[i]._id %>">
+                            <strong><%= legPrograms[i].name %></strong>
                         </a>
                         <p>
-                            <em>Submitted by <%= chestPrograms[i].author.username %></em>
+                            <em>Submitted by <%= legPrograms[i].author.username %></em>
                         </p>
                     </td>
-                    <td><%= chestPrograms[i].description.substring(0, 180) %></td>
+                    <td><%= legPrograms[i].description.substring(0, 80) %></td>
                 </tr>
             <% } %>
         </tbody>
@@ -40,7 +40,7 @@
     
     <script>
         $(document).ready(function() {
-           $('#chestTable').DataTable();
+           $('#legTable').DataTable();
        });
     </script>
     </body>

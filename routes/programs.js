@@ -21,11 +21,11 @@ router.get("/chest", function(req, res) {
 });
 
 router.get("/legs", function(req, res) {
-   Program.find({"cartegory": "legs"}, function(err, legsPrograms){
+   Program.find({"cartegory": "legs"}, function(err, legPrograms){
        if(err) {
            console.log(err);
        } else {
-           res.render("programs/legs", {legsPrograms: legsPrograms});
+           res.render("programs/legs", {legPrograms: legPrograms});
        }
    });
 });
@@ -51,11 +51,11 @@ router.get("/shoulder", function(req, res) {
 });
 
 router.get("/arms", function(req, res) {
-   Program.find({"cartegory": "arms"}, function(err, armsPrograms){
+   Program.find({"cartegory": "arms"}, function(err, armPrograms){
        if(err) {
            console.log(err);
        } else {
-           res.render("programs/arms", {armsPrograms: armsPrograms});
+           res.render("programs/arms", {armPrograms: armPrograms});
        }
    });
 });
