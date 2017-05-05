@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Add a new Workout Program</h1>
+        <div style="width: 45%; margin: 25px auto">
+            <form action="/workout-programs" method="POST">
+                <div class="form-group">
+                    <label for="name">Program Name</label>
+                    <input class="form-control" type="text" name="name" placeholder="name"  maxlength="60">
+                </div>
+                <div class="form-group">
+                    <label for="cartegory">Cartegory</label>
+                    <div>
+                    <select name="cartegory">
+                        <option value="chest">Chest</option>
+                        <option value="legs">Legs</option>
+                        <option value="back">Back</option>
+                        <option value="shoulder">Shoulder</option>
+                        <option value="arm">Arms</option>
+                        <option value="other">Other</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="text">Description</label>
+                    <textarea name="description" rows="7" cols="73" placeholder="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="text">Program</label>
+                    <textarea name="text" rows="10" cols="73" placeholder="enter workouts"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/workout-programs">Go Back</a>
+        </div>
+    </div>
+<% include ../partials/footer %>

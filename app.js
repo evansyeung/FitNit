@@ -6,7 +6,8 @@ var express         = require("express"),
     passport        = require("passport"),
     LocalStrategy   = require("passport-local"),
     methodOverride  = require("method-override"),
-    Measurement      = require("./models/measurement"),
+    Measurement     = require("./models/measurement"),
+    Program         = require("./models/program"),
     User            = require("./models/user");
 
 var indexRoutes             = require("./routes/index"),
