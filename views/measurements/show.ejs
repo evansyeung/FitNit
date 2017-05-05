@@ -1,29 +1,30 @@
 <% include ../partials/header %>
-    <table class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Height</th>
-                <th>Weight</th>
-                <th>Chest</th>
-                <th>Waist</th>
-                <th>Hip</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><%= moment(measurement.createdAt).format("MMM DD, YYYY") %></td>
-                <td><%= measurement.height %></td>
-                <td><%= measurement.weight %></td>
-                <td><%= measurement.chest %></td>
-                <td><%= measurement.waist %></td>
-                <td><%= measurement.hip %></td>
-            </tr>
-        </tbody>
-    </table>
-    <a class="btn btn-warning btn-md pull-right" href="/measurements/<%= measurement._id %>/edit">Edit <i class="fa fa-cog"></i></a></td>
-    <form id="delete-form" action="/measurements/<%= measurement._id %>?_method=DELETE" method="POST">
-        <button class="btn btn-danger">Delete <i class="fa fa-trash"></i></button>
-    </form>
-    <a href="/measurements">Go Back</a>
+    <h1 class="centerText"><%= moment(measurement.createdAt).format("MMM DD, YYYY") %> Measurement</h1>
+    <div class="measurementCell">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Chest</th>
+                    <th>Waist</th>
+                    <th>Hip</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= measurement.height %></td>
+                    <td><%= measurement.weight %></td>
+                    <td><%= measurement.chest %></td>
+                    <td><%= measurement.waist %></td>
+                    <td><%= measurement.hip %></td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-warning btn-md" href="/measurements/<%= measurement._id %>/edit">Edit <i class="fa fa-cog"></i></a></td>
+        <form class="delete-form" action="/measurements/<%= measurement._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete <i class="fa fa-trash"></i></button>
+        </form>
+        <a class="backButton" href="/measurements">Go Back</a>
+    </div>
 <% include ../partials/footer %>
