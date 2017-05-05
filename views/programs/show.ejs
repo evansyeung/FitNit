@@ -1,8 +1,8 @@
 <% include ../partials/header %>
     <div class="well">
-        <h1><%= chestPrograms[0].name %></h1>
+        <h1><%= program.name %></h1>
         <p>
-            <em>Submitted by: <%= chestPrograms[0].author.username %>, <%= moment(chestPrograms[0].createdAt).fromNow() %></em>
+            <em>Submitted by: <%= program.author.username %>, <%= moment(program.createdAt).fromNow() %></em>
         </p>
     </div>
 <% include ../partials/footer %>

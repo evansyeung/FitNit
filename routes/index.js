@@ -33,7 +33,7 @@ router.post("/register", function(req, res){
        
        passport.authenticate("local")(req, res, function(){
             req.flash("success", "Welcome to FitNit " + user.username)
-            res.redirect("/measurements");
+            res.redirect("/workout-programs");
        });
     });
 });
@@ -51,7 +51,7 @@ router.get("/login", function(req, res){
 // handling login logic
 router.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "/measurements",
+        successRedirect: "/workout-programs",
         failureRedirect: "/login",
         failureFlash: true,
         successFlash: 'Welcome to FitNit!'

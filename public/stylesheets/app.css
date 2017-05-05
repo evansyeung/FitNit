@@ -20,6 +20,29 @@ canvas {
 	margin: 0 auto;
 }
 
+.measurementCell {
+	width: 70%;
+	margin: 50px auto;
+}
+
+.centerText {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.delete-form{
+    display: inline ;
+}
+
+.backButton {
+	display: block;
+	margin-top: 10px;
+}
+
+.title-Button {
+	margin-bottom: 40px;
+}
+
 #myChart {
 	margin: 30px auto 50px auto;
 }
@@ -30,7 +53,7 @@ canvas {
 
 .grid {
 	overflow: hidden;
-	margin: 0;
+	margin: 0 0 70px 0;
 	padding: 3em 0 0 0;
 	width: 100%;
 	list-style: none;
