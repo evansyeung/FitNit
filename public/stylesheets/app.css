@@ -31,7 +31,7 @@ canvas {
 }
 
 .delete-form{
-    display: inline ;
+    display: inline;
 }
 
 .backButton {
@@ -84,10 +84,6 @@ select {
 	margin-left: 10px;
 }
 
-#appendholder {
-	margin-bottom: 50px;
-}
-
 .set-input{
 	float: left;
 	width: 49%;
@@ -103,6 +99,18 @@ select {
 	margin-right: 10px;
 }
 
+#showTable {
+	width: 60%;
+	margin: 30px auto 30px auto;
+	border-top: 2px solid #ddd;
+	border-bottom: 2px solid #ddd;
+}
+
+.content {
+	padding: 10px 50px;
+}
+
+/*}*/
 /*---------------------*/
 /***** Grid Layout *****/
 /*---------------------*/

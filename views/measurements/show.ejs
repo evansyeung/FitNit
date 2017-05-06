@@ -21,10 +21,12 @@
                 </tr>
             </tbody>
         </table>
-        <a class="btn btn-warning btn-md" href="/measurements/<%= measurement._id %>/edit">Edit <i class="fa fa-cog"></i></a></td>
-        <form class="delete-form" action="/measurements/<%= measurement._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-danger">Delete <i class="fa fa-trash"></i></button>
-        </form>
+        <% if(currentUser && measurement.author.id.equals(currentUser._id)) { %>
+            <a class="btn btn-warning btn-md" href="/measurements/<%= measurement._id %>/edit">Edit <i class="fa fa-cog"></i></a></td>
+            <form class="delete-form" action="/measurements/<%= measurement._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-danger">Delete <i class="fa fa-trash"></i></button>
+            </form>
+        <% } %>
         <a class="backButton" href="/measurements">Go Back</a>
     </div>
 <% include ../partials/footer %>

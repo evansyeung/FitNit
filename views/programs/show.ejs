@@ -1,8 +1,44 @@
 <% include ../partials/header %>
     <div class="well">
-        <h1><%= program.name %></h1>
-        <p>
-            <em>Submitted by: <%= program.author.username %>, <%= moment(program.createdAt).fromNow() %></em>
-        </p>
+        <div class="content">
+            <h1><%= program.name %></h1>
+            <p>
+                <em>Submitted by: <%= program.author.username %>, <%= moment(program.createdAt).fromNow() %></em>
+            </p>
+            <p><%= program.description %></p>
+            <table id="showTable" class="table table-hover table-striped">
+                <col width="50px">
+                <col width="700px">
+                <col width="300px">
+                <col width="300px">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < program.exercises.length; i++) { %>
+                        <tr>
+                            <td></td>
+                            <td><%= program.exercises[i] %></td>
+                            <td><%= program.sets[i] %></td>
+                            <td><%= program.reps[i] %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <% if(currentUser && program.author.id.equals(currentUser._id)) { %>
+                <a class="btn btn-warning btn-md" href="/workout-program/chest/<%= program._id %>/edit">Edit <i class="fa fa-cog"></i></a></td>
+                <form class="delete-form" action="//workout-program/chest/<%= program._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete <i class="fa fa-trash"></i></button>
+                </form>
+            <% } %>
+        </div>
+    </div>
+    <div class="well">
+        
     </div>
 <% include ../partials/footer %>
