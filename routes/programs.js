@@ -187,5 +187,17 @@ router.put("/:id", function(req, res){
     });
 });
 
+// DESTROY ROUTE
+router.delete("/:id", function(req, res){
+    Program.findByIdAndRemove(req.params.id, function(err){
+        if(err) {
+            req.flash("error", "Something went wrong");
+            res.redirect("/workout-programs");
+        } else {
+            req.flash("success", "Successfully deleted program");
+            res.redirect("/workout-programs");
+        }
+    });
+});
 
 module.exports = router;
