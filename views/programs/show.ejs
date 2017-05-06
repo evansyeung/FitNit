@@ -31,8 +31,8 @@
                 </tbody>
             </table>
             <% if(currentUser && program.author.id.equals(currentUser._id)) { %>
-                <a class="btn btn-warning btn-md" href="/workout-program/chest/<%= program._id %>/edit">Edit <i class="fa fa-cog"></i></a></td>
-                <form class="delete-form" action="//workout-program/chest/<%= program._id %>?_method=DELETE" method="POST">
+                <a class="btn btn-warning btn-md" href="/workout-programs/<%= program._id %>/edit">Edit <i class="fa fa-cog"></i></a></td>
+                <form class="delete-form" action="/workout-programs/<%= program._id %>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete <i class="fa fa-trash"></i></button>
                 </form>
             <% } %>

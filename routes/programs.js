@@ -162,5 +162,30 @@ router.get("/other/:id", function(req, res) {
     })
 });
 
+// EDIT ROUTE
+router.get("/:id/edit",  function(req, res){
+    // If we get to this point, that means we've already checked ownership and made it through
+    Program.findById(req.params.id, function(err, foundProgram){
+        if(err) {
+            req.flash("error", "Program does not exist");
+            res.redirect("back");
+        }
+        res.render("programs/edit", {program: foundProgram});
+    });
+});
+
+// UPDATE CAMPGROUND ROUTE
+router.put("/:id", function(req, res){
+    // find and update the correct campground
+    Program.findByIdAndUpdate(req.params.id, req.body.program, function(err, updatedProgram){
+       if(err){
+           res.redirect("/workout-programs");
+       } else {
+           req.flash("success", "Successfully edited measurement");
+           res.redirect("/workout-programs/" + req.body.program.cartegory + "/" + req.params.id);
+       }
+    });
+});
+
 
 module.exports = router;

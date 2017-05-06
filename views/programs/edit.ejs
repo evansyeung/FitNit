@@ -1,0 +1,56 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1>Edit Workout Program</h1>
+        <div class="width-45">
+            <form action="/workout-programs/<%=program._id%>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <div id="name-input">
+                        <label for="name">Program Name</label>
+                        <input class="form-control" type="text" name="program[name]" placeholder="name" maxlength="60" value="<%= program.name %>" required>
+                    </div>
+                    <div id="select-input">
+                        <label for="cartegory">Body Part</label>
+                        <select name="program[cartegory]" value="<%= program.cartegory %>" required>
+                            <option value="chest">Chest</option>
+                            <option value="legs">Legs</option>
+                            <option value="back">Back</option>
+                            <option value="shoulder">Shoulder</option>
+                            <option value="arm">Arms</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" >Description</label>
+                    <textarea name="program[description]" rows="15" cols="72" placeholder="description" required><%= program.description %></textarea>
+                </div>
+                <% for(var i = 0; i < program.exercises.length; i++) { %>
+                    <div>
+                        <div class="form-group">
+                            <label for="exercises">Exercise</label>
+                            <input class="form-control" type="text" name="program[exercises]" placeholder="name" maxlength="30" value="<%= program.exercises[i] %>" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="set-input">
+                                <label for="sets">Sets</label>
+                                <input class="form-control" type="number" name="program[sets]" placeholder="sets" min="1" step="1" value="<%= program.sets[i] %>" required>
+                            </div>
+                            <div class="rep-input">
+                                <label for="reps">Reps</label>
+                                <input class="form-control" type="text" name="program[reps]" placeholder="reps" value="<%= program.reps[i] %>" required>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <div>
+                    <i class="fa fa-minus-circle fa-3x"></i>
+                    <i class="fa fa-plus-circle fa-3x"></i>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/workout-programs/<%= program.cartegory %>/<%= program._id %>">Go Back</a>
+        </div>
+    </div>
+<% include ../partials/footer %>
