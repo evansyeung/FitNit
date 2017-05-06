@@ -5,7 +5,9 @@ var programSchema = new mongoose.Schema({
     cartegory: String,
     createdAt: { type: Date, default: Date.now },
     description: String,
-    text: String,
+    exercises: [String],
+    sets: [Number],
+    reps: [String],
     author:{
         id: {
             // Reference to a User model ID

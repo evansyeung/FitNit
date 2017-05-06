@@ -43,8 +43,64 @@ canvas {
 	margin-bottom: 40px;
 }
 
+.width-45 {
+	width: 45%;
+	margin: 25px auto;
+}
+
+.width-30 {
+	width: 30%;
+	margin: 25px auto;
+}
+
+.width-60 {
+	width: 60%;
+	margin: 25px auto;
+}
+
 #myChart {
 	margin: 30px auto 50px auto;
+}
+
+.row h1 {
+	text-align: center;
+}
+
+div label {
+	display: block;
+}
+
+select {
+	height: 33.4px;
+}
+
+#name-input {
+	display: inline-block;
+	width: 81.65%;
+}
+
+#select-input {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+#appendholder {
+	margin-bottom: 50px;
+}
+
+.set-input{
+	float: left;
+	width: 49%;
+}
+
+.rep-input {
+	float: right;
+	width: 49%;
+}
+
+.fa-minus-circle {
+	display: none;
+	margin-right: 10px;
 }
 
 /*---------------------*/

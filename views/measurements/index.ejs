@@ -1,12 +1,12 @@
 <% include ../partials/header %>
     <header class="jumbotron">
-            <div class="container">
-                <h1>Welcome, <%= currentUser.username %>!</h1>
-                <p>Here are your measurements</p>
-                <p>
-                    <a class="btn btn-primary btn-large" href="/measurements/new">Add New Measurement</a>
-                </p>
-            </div>
+        <div class="container">
+            <h1>Welcome, <%= currentUser.username %>!</h1>
+            <p>Here are your measurements</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="/measurements/new">Add New Measurement</a>
+            </p>
+        </div>
     </header>
     <div class="accountTable">
         <table id="measurementTable" class="table table-hover table-striped">

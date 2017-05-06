@@ -1,7 +1,7 @@
 <% include ../partials/header %>
     <div class="row">
-        <h1 style="text-align: center"><%= moment(measurement.createdAt).format("MMM DD, YYYY") %> Measurements</h1>
-        <div style="width: 30%; margin: 25px auto;">
+        <h1><%= moment(measurement.createdAt).format("MMM DD, YYYY") %> Measurements</h1>
+        <div class="width-30">
             <form action="/measurements/<%=measurement._id%>?_method=PUT" method="POST">
                 <div class="form-group">
                     <label for="name">Date</label>

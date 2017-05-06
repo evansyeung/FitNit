@@ -76,13 +76,15 @@ router.post("/",  middleware.isLoggedIn, function(req, res){
     var cartegory = req.body.cartegory;
     var date = req.body.date;
     var description = req.body.description;
-    var text = req.body.text;
+    var exercises = req.body.exercises;
+    var sets = req.body.sets;
+    var reps = req.body.reps;
     var author = {
         id: req.user._id,
         username: req.user.username
     };
     
-    var newProgram = {name: name, cartegory: cartegory, date: date, description: description, text: text, author: author};
+    var newProgram = {name: name, cartegory: cartegory, date: date, description: description, exercises: exercises, sets: sets, reps: reps, author: author};
     
     Program.create(newProgram, function(err, program){
         if(err) {
