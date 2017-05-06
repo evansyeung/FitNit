@@ -21,6 +21,7 @@ router.post("/register", function(req, res){
     var newUser = User({username: req.body.username,
                         fName: req.body.fName,
                         lName: req.body.lName,
+                        email: req.body.email,
                         gender: req.body.gender
     });
     
