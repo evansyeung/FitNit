@@ -15,6 +15,6 @@ $(".fa-minus-circle").on("click", function() {
         inputCount--;
     } 
     if (inputCount === 1) {
-        $(".fa-minus-circle").fadeToggle();
+        $(this).fadeToggle();
     }
 });

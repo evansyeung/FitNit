@@ -25,27 +25,21 @@
                     <textarea name="program[description]" rows="15" cols="72" placeholder="description" required><%= program.description %></textarea>
                 </div>
                 <% for(var i = 0; i < program.exercises.length; i++) { %>
-                    <div>
-                        <div class="form-group">
-                            <label for="exercises">Exercise</label>
-                            <input class="form-control" type="text" name="program[exercises]" placeholder="name" maxlength="30" value="<%= program.exercises[i] %>" required>
+                    <div class="form-group">
+                        <label for="exercises">Exercise</label>
+                        <input class="form-control" type="text" name="program[exercises]" placeholder="name" maxlength="30" value="<%= program.exercises[i] %>" required>
+                    </div>
+                    <div class="form-group margin-bottom-100">
+                        <div class="set-input">
+                            <label for="sets">Sets</label>
+                            <input class="form-control" type="number" name="program[sets]" placeholder="sets" min="1" step="1" value="<%= program.sets[i] %>" required>
                         </div>
-                        <div class="form-group">
-                            <div class="set-input">
-                                <label for="sets">Sets</label>
-                                <input class="form-control" type="number" name="program[sets]" placeholder="sets" min="1" step="1" value="<%= program.sets[i] %>" required>
-                            </div>
-                            <div class="rep-input">
-                                <label for="reps">Reps</label>
-                                <input class="form-control" type="text" name="program[reps]" placeholder="reps" value="<%= program.reps[i] %>" required>
-                            </div>
+                        <div class="rep-input">
+                            <label for="reps">Reps</label>
+                            <input class="form-control" type="text" name="program[reps]" placeholder="reps" value="<%= program.reps[i] %>" required>
                         </div>
                     </div>
                 <% } %>
-                <div>
-                    <i class="fa fa-minus-circle fa-3x"></i>
-                    <i class="fa fa-plus-circle fa-3x"></i>
-                </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>
                 </div>

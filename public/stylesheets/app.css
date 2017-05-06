@@ -9,6 +9,18 @@ canvas {
 	max-width: 600px;
 }
 
+div label {
+	display: block;
+}
+
+select {
+	height: 33.4px;
+}
+
+.row h1 {
+	text-align: center;
+}
+
 .navbar-header img {
 	height: 30px;
 	width: 30px;
@@ -58,32 +70,6 @@ canvas {
 	margin: 25px auto;
 }
 
-#myChart {
-	margin: 30px auto 50px auto;
-}
-
-.row h1 {
-	text-align: center;
-}
-
-div label {
-	display: block;
-}
-
-select {
-	height: 33.4px;
-}
-
-#name-input {
-	display: inline-block;
-	width: 81.65%;
-}
-
-#select-input {
-	display: inline-block;
-	margin-left: 10px;
-}
-
 .set-input{
 	float: left;
 	width: 49%;
@@ -99,6 +85,14 @@ select {
 	margin-right: 10px;
 }
 
+.content {
+	padding: 10px 50px;
+}
+
+.margin-bottom-100 {
+	margin-bottom: 100px
+}
+
 #showTable {
 	width: 60%;
 	margin: 50px auto 30px auto;
@@ -106,8 +100,18 @@ select {
 	border-bottom: 2px solid #ddd;
 }
 
-.content {
-	padding: 10px 50px;
+#myChart {
+	margin: 30px auto 50px auto;
+}
+
+#name-input {
+	display: inline-block;
+	width: 81.65%;
+}
+
+#select-input {
+	display: inline-block;
+	margin-left: 10px;
 }
 
 /*}*/
