@@ -1,4 +1,5 @@
 var Measurement     =  require("../models/measurement");
+var Program     =  require("../models/program");
 var User            =  require("../models/user");
 
 var middlewareObj = {};
@@ -20,6 +21,27 @@ middlewareObj.checkMeasurementOwnership = function(req, res, next) {
             res.redirect("back");
           } else {
               if(foundMeasurement.author.id.equals(req.user._id)) {
+                  next();
+              } else {
+                  req.flash("error", "You don't have permission to do that");
+                  res.redirect("back");
+              }
+          }
+        });
+    } else {
+        req.flash("error", "You need to be logged in to do that");
+        res.redirect("back");
+    }
+}
+
+middlewareObj.checkProgramOwnership = function(req, res, next) {
+    if(req.isAuthenticated()){
+        Program.findById(req.params.id, function(err, foundProgram){
+          if(err) {
+            req.flash("error", "Program not found");
+            res.redirect("back");
+          } else {
+              if(foundProgram.author.id.equals(req.user._id)) {
                   next();
               } else {
                   req.flash("error", "You don't have permission to do that");

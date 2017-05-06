@@ -90,7 +90,7 @@ router.post("/",  middleware.isLoggedIn, function(req, res){
         if(err) {
             console.log(err);
         } else {
-            console.log(program);
+            // console.log(program);
             res.redirect("/workout-programs");
         }
     })
@@ -163,7 +163,7 @@ router.get("/other/:id", function(req, res) {
 });
 
 // EDIT ROUTE
-router.get("/:id/edit",  function(req, res){
+router.get("/:id/edit", middleware.checkProgramOwnership, function(req, res){
     // If we get to this point, that means we've already checked ownership and made it through
     Program.findById(req.params.id, function(err, foundProgram){
         if(err) {
@@ -175,7 +175,7 @@ router.get("/:id/edit",  function(req, res){
 });
 
 // UPDATE CAMPGROUND ROUTE
-router.put("/:id", function(req, res){
+router.put("/:id", middleware.checkProgramOwnership, function(req, res){
     // find and update the correct campground
     Program.findByIdAndUpdate(req.params.id, req.body.program, function(err, updatedProgram){
        if(err){
@@ -188,7 +188,7 @@ router.put("/:id", function(req, res){
 });
 
 // DESTROY ROUTE
-router.delete("/:id", function(req, res){
+router.delete("/:id", middleware.checkProgramOwnership, function(req, res){
     Program.findByIdAndRemove(req.params.id, function(err){
         if(err) {
             req.flash("error", "Something went wrong");

@@ -1,6 +1,7 @@
 <% include ../partials/header %>
     <div class="well">
         <div class="content">
+            <p><a href="/workout-programs">Home</a> > <a href="/workout-programs/<%= program.cartegory %>" > <%= program.cartegory.charAt(0).toUpperCase() + program.cartegory.slice(1) %></a> > <%= program.name %></p>
             <h1><%= program.name %></h1>
             <p>
                 <em>Submitted by: <%= program.author.username %>, <%= moment(program.createdAt).fromNow() %></em>
