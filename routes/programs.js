@@ -15,7 +15,7 @@ router.get("/:cartegory", function(req, res) {
        if(err) {
            console.log(err);
        } else {
-           res.render("programs/" + req.params.cartegory, {programs: foundPrograms});
+           res.render("programs/" + req.params.cartegory, {programs: foundPrograms, cartegory: req.params.cartegory});
        }
    });
 });
@@ -63,7 +63,7 @@ router.get("/chest/:id", function(req, res) {
 });
 
 router.get("/legs/:id", function(req, res) {
-    Program.findById(req.params.id, function(err, foundProgram){
+    Program.findById(req.params.id).populate("comments").exec(function(err, foundProgram){
         if(err) {
             console.log(err);
         } else {
@@ -73,7 +73,7 @@ router.get("/legs/:id", function(req, res) {
 });
 
 router.get("/back/:id", function(req, res) {
-    Program.findById(req.params.id, function(err, foundProgram){
+    Program.findById(req.params.id).populate("comments").exec(function(err, foundProgram){
         if(err) {
             console.log(err);
         } else {
@@ -83,7 +83,7 @@ router.get("/back/:id", function(req, res) {
 });
 
 router.get("/shoulder/:id", function(req, res) {
-    Program.findById(req.params.id, function(err, foundProgram){
+    Program.findById(req.params.id).populate("comments").exec(function(err, foundProgram){
         if(err) {
             console.log(err);
         } else {
@@ -93,7 +93,7 @@ router.get("/shoulder/:id", function(req, res) {
 });
 
 router.get("/arms/:id", function(req, res) {
-    Program.findById(req.params.id, function(err, foundProgram){
+    Program.findById(req.params.id).populate("comments").exec(function(err, foundProgram){
         if(err) {
             console.log(err);
         } else {
@@ -103,7 +103,7 @@ router.get("/arms/:id", function(req, res) {
 });
 
 router.get("/other/:id", function(req, res) {
-    Program.findById(req.params.id, function(err, foundProgram){
+    Program.findById(req.params.id).populate("comments").exec(function(err, foundProgram){
         if(err) {
             console.log(err);
         } else {

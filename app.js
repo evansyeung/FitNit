@@ -14,7 +14,8 @@ var express         = require("express"),
 var indexRoutes             = require("./routes/index"),
     measurementRoutes       = require("./routes/measurements"),
     commentRoutes           = require("./routes/comments"),
-    workOutProgramRoutes    = require("./routes/programs");
+    workOutProgramRoutes    = require("./routes/programs"),
+    userRoutes              = require("./routes/users");
 
 mongoose.connect("mongodb://localhost/fitnit");
 
@@ -39,7 +40,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // Every single route we run this middleware function
 app.use(function(req, res, next) {
-    // Whatever we put in res.locals is what is available in our template
+    // Whatever we put in res.locals is what is available in our templates
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
@@ -50,6 +51,7 @@ app.use(function(req, res, next) {
 // ROUTES files
 app.use(indexRoutes);
 app.use("/measurements", measurementRoutes);
+app.use("/", userRoutes);
 app.use("/workout-programs", workOutProgramRoutes);
 app.use("/workout-programs/:id/comments", commentRoutes);
 

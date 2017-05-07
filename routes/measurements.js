@@ -75,7 +75,7 @@ router.get("/:id/edit", middleware.checkMeasurementOwnership, function(req, res)
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", middleware.checkMeasurementOwnership, function(req, res){
-    // find and update the correct campground
+    // find and update the correct measurement
     Measurement.findByIdAndUpdate(req.params.id, req.body.measurement, function(err, updatedMeasurement){
        if(err){
            res.redirect("/measurements");
