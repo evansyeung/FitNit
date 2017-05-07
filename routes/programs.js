@@ -10,62 +10,12 @@ router.get("/", function(req, res){
 });
 
 // INDEX ROUTES for each cartegory
-router.get("/chest", function(req, res) {
-   Program.find({"cartegory": "chest"}, function(err, chestPrograms){
+router.get("/:cartegory", function(req, res) {
+   Program.find({"cartegory": req.params.cartegory}, function(err, foundPrograms){
        if(err) {
            console.log(err);
        } else {
-           res.render("programs/chest", {chestPrograms: chestPrograms});
-       }
-   });
-});
-
-router.get("/legs", function(req, res) {
-   Program.find({"cartegory": "legs"}, function(err, legPrograms){
-       if(err) {
-           console.log(err);
-       } else {
-           res.render("programs/legs", {legPrograms: legPrograms});
-       }
-   });
-});
-
-router.get("/back", function(req, res) {
-   Program.find({"cartegory": "back"}, function(err, backPrograms){
-       if(err) {
-           console.log(err);
-       } else {
-           res.render("programs/back", {backPrograms: backPrograms});
-       }
-   });
-});
-
-router.get("/shoulder", function(req, res) {
-   Program.find({"cartegory": "shoulder"}, function(err, shoulderPrograms){
-       if(err) {
-           console.log(err);
-       } else {
-           res.render("programs/shoulder", {shoulderPrograms: shoulderPrograms});
-       }
-   });
-});
-
-router.get("/arms", function(req, res) {
-   Program.find({"cartegory": "arms"}, function(err, armPrograms){
-       if(err) {
-           console.log(err);
-       } else {
-           res.render("programs/arms", {armPrograms: armPrograms});
-       }
-   });
-});
-
-router.get("/other", function(req, res) {
-   Program.find({"cartegory": "other"}, function(err, otherPrograms){
-       if(err) {
-           console.log(err);
-       } else {
-           res.render("programs/other", {otherPrograms: otherPrograms});
+           res.render("programs/" + req.params.cartegory, {programs: foundPrograms});
        }
    });
 });

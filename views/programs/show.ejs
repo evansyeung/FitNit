@@ -41,7 +41,11 @@
     </div>
     <div class="well">
         <div class="content">
-            <h3><%= program.comments.length %> Comments</h3>
+            <% if(program.comments.length === 1) { %>
+                <h3><%= program.comments.length %> Comment</h3>
+            <% } else { %>
+                <h3><%= program.comments.length %> Comments</h3>
+            <% } %>
             <form action="/workout-programs/<%= program._id %>/comments" method="POST">
                 <div class="form-group">
                     <textarea type="text" name="comment[text]" placeholder="Please be respectful, civil, and constructive when commenting." rows="7" cols="60" maxlength="3000"></textarea>

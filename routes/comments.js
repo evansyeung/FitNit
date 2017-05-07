@@ -54,7 +54,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 });
 
 // EDIT ROUTE
-router.get("/:comment_id/edit", function(req, res){
+router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
    Program.findById(req.params.id, function(err, foundProgram) {
        if(err) {
            console.log(err);
@@ -72,7 +72,7 @@ router.get("/:comment_id/edit", function(req, res){
 });
 
 // UPDATE ROUTE
-router.put("/:comment_id", function(req, res){
+router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
     Program.findById(req.params.id, function(err, foundProgram) {
        if(err) {
            console.log(err);
@@ -90,7 +90,7 @@ router.put("/:comment_id", function(req, res){
 });
 
 // DESTROY ROUTE
-router.delete("/:comment_id", function(req, res){
+router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, res){
     Program.findById(req.params.id, function(err, foundProgram) {
         if(err) {
             console.log(err);

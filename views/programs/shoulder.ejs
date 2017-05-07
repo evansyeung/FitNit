@@ -13,18 +13,18 @@
             </tr>
         </thead>
         <tbody>
-            <% for(var i = 0; i < shoulderPrograms.length; i++) { %>
+            <% for(var i = 0; i < programs.length; i++) { %>
                 <tr>
                     <td scope="row"><%= i+1 %></td>
                     <td>
-                        <a href="/workout-programs/shoulder/<%= shoulderPrograms[i]._id %>">
-                            <strong><%= shoulderPrograms[i].name %></strong>
+                        <a href="/workout-programs/shoulder/<%= programs[i]._id %>">
+                            <strong><%= programs[i].name %></strong>
                         </a>
                         <p>
-                            <em>Submitted by <%= shoulderPrograms[i].author.username %></em>
+                            <em>Submitted by <%= programs[i].author.username %></em>
                         </p>
                     </td>
-                    <td><%- shoulderPrograms[i].description.substring(0, 180) %></td>
+                    <td><%- programs[i].description.substring(0, 180) %></td>
                 </tr>
             <% } %>
         </tbody>
