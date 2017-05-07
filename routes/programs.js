@@ -103,7 +103,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 
 // SHOW ROUTE - 6 for each cartegory
 router.get("/chest/:id", function(req, res) {
-    Program.findById(req.params.id, function(err, foundProgram){
+    Program.findById(req.params.id).populate("comments").exec(function(err, foundProgram){
         if(err) {
             console.log(err);
         } else {

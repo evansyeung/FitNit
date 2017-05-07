@@ -24,7 +24,7 @@
                             <em>Submitted by <%= chestPrograms[i].author.username %></em>
                         </p>
                     </td>
-                    <td><%= chestPrograms[i].description.substring(0, 180) %></td>
+                    <td><%- chestPrograms[i].description.substring(0, 180) %></td>
                 </tr>
             <% } %>
         </tbody>

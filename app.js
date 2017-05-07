@@ -8,10 +8,12 @@ var express         = require("express"),
     methodOverride  = require("method-override"),
     Measurement     = require("./models/measurement"),
     Program         = require("./models/program"),
+    Comment         = require("./models/comment"),
     User            = require("./models/user");
 
 var indexRoutes             = require("./routes/index"),
     measurementRoutes       = require("./routes/measurements"),
+    commentRoutes           = require("./routes/comments"),
     workOutProgramRoutes    = require("./routes/programs");
 
 mongoose.connect("mongodb://localhost/fitnit");
@@ -49,6 +51,7 @@ app.use(function(req, res, next) {
 app.use(indexRoutes);
 app.use("/measurements", measurementRoutes);
 app.use("/workout-programs", workOutProgramRoutes);
+app.use("/workout-programs/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("FitNit Server Has Started!");

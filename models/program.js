@@ -8,6 +8,13 @@ var programSchema = new mongoose.Schema({
     exercises: [String],
     sets: [Number],
     reps: [String],
+    comments: [
+      {
+         // Reference to a Comment Model ID
+         type: mongoose.Schema.Types.ObjectId,
+         ref: "Comment"
+      }
+    ],
     author:{
         id: {
             // Reference to a User model ID

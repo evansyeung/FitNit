@@ -6,7 +6,7 @@
             <p>
                 <em>Submitted by: <%= program.author.username %>, <%= moment(program.createdAt).fromNow() %></em>
             </p>
-            <p><%= program.description %></p>
+            <p><%- program.description %></p>
             <table id="showTable" class="table table-hover table-striped">
                 <col width="50px">
                 <col width="700px">
@@ -40,6 +40,34 @@
         </div>
     </div>
     <div class="well">
-        <!--comments-->
+        <div class="content">
+            <h3><%= program.comments.length %> Comments</h3>
+            <form action="/workout-programs/<%= program._id %>/comments" method="POST">
+                <div class="form-group">
+                    <textarea type="text" name="comment[text]" placeholder="Please be respectful, civil, and constructive when commenting." rows="7" cols="60" maxlength="3000"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-sm btn-primary btn-block comment-add-btn">Save!</button>
+                </div>
+            </form>
+            <!--comments-->
+            <% program.comments.forEach(function(comment){ %>
+                <div class="row">
+                    <div class="col-md-12 comments-border">
+                        <strong class="author-blue"><%= comment.author.username %></strong>
+                        <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                        <p>
+                            <%- comment.text %> 
+                        </p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+                            <a href="/workout-programs/<%= program._id %>/comments/<%= comment._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
+                            <form class="delete-form" action="/workout-programs/<%= program._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-xs">Delete</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+            <% }) %>    <!--end of forEach-->
+        </div>
     </div>
 <% include ../partials/footer %>
