@@ -47,8 +47,8 @@ router.post("/",  middleware.isLoggedIn, function(req, res){
 });
 
 // NEW ROUTE
-router.get("/new", middleware.isLoggedIn, function(req, res){
-    res.render("programs/new");
+router.get("/:cartegory/new", middleware.isLoggedIn, function(req, res){
+    res.render("programs/new", { cartegory: req.params.cartegory});
 });
 
 // SHOW ROUTE - 6 for each cartegory
