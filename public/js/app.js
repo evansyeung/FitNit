@@ -6,7 +6,6 @@ $(".fa-plus-circle").on("click", function() {
     }
     $(this).animate({fontSize: '70px'});
     $(this).animate({fontSize: '40px'});
-    // $('<div><div class="form-group"><label for="exercises">Exercise</label><input class="form-control" type="text" name="exercises" placeholder="name" maxlength="30" required></div><div class="form-group"><div class="set-input"><label for="sets">Sets</label><input class="form-control" type="number" name="sets" placeholder="sets" min="1" step="1" required></div><div class="rep-input"><label for="reps">Reps</label><input class="form-control" type="text" name="reps" placeholder="reps" required></div></div></div>').insertAfter("form div:nth-last-of-type(3)");
     $('<div class="form-group"><label for="exercises">Exercise ' + (inputCount + 1) + '</label><input class="form-control" type="text" name="exercises" placeholder="name" maxlength="30" required></div><div class="form-group"><label for="sets">Sets</label><input class="form-control" type="number" name="sets" placeholder="sets" min="1" step="1" required></div><div class="form-group"><label for="reps">Reps</label><input class="form-control" type="text" name="reps" placeholder="reps" required></div>').insertAfter("form div:nth-last-of-type(3)");
     inputCount++;
 });
