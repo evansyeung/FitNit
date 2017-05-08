@@ -5,16 +5,16 @@
     text-align: center;
     /*This will get it centered vertically*/
     /*padding-top: 40vh;*/
-    top: 40vh;
+    top: 42vh;
     
     /*border: 2px solid black;*/
-	width: 550px;
-	height: 160px;
+	width: 730px;
+	height: 180px;
 	margin: -20px auto 0 auto;
 }
 
 #landing-header h1 {
     font-weight: 600;
-    font-size: 60px;
+    font-size: 80px;
     color: #fff;
 }

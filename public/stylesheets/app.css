@@ -166,26 +166,82 @@ a:hover {
 	border: 0;
 }
 
+.navbar-default {
+	background: #FF3B3F;
+}
+
+.navbar .navbar-nav > li > a {
+    color: #fff;
+	-webkit-transition: all .1s linear;
+	-moz-transition: all .1s linear;
+	transition: .1s all linear;
+}
+
+.navbar .navbar-nav > li:hover > a {
+	background: #EFEFEF;
+	color: #555;
+}
+
+.navbar-default .navbar-nav>.active>a {
+	background: #EFEFEF;
+	color: #555;
+}
+
 .navbar-header img {
 	height: 30px;
 	width: 30px;
 	margin-top: -5px;
 }
 
-.navbar-default {
-	background: #67BCDB;
+/*Dropdown menu*/
+.dropdown-menu {
+	background: #EFEFEF;
+	border: none;
 }
 
-.navbar-default .navbar-nav > li > a {
-	font-size: 15px;
-	padding-top: 18px;
-	color: #FFF;
+/*Make dropdown menu appear on hover on for screens with width 979px or larger*/
+@media (min-width: 979px) {
+	.dropdown:hover .dropdown-menu {
+		display: block;
+	}
 }
 
-.navbar-default .navbar-nav>.active>a {
+.dropdown-menu>li>a {
+	-webkit-transition: all .1s linear;
+	-moz-transition: all .1s linear;
+	transition: .1s all linear;
+}
+
+.dropdown-menu>li>a:hover {
+	background: #FF3B3F;
 	color: #fff;
-	background: #E44424;
 }
+
+/*Mobile version*/
+@media (max-width: 767px) {
+	/*Sandwhich icon*/
+	.navbar-default .navbar-toggle .icon-bar {
+		background-color: #EFEFEF;
+	}
+	
+	.navbar-default .navbar-toggle:hover .icon-bar {
+		background-color: #FF3B3F;
+	}
+	
+	.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+		background-color: #fff;
+	}
+	
+	/*Options for dropdown*/
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+		color: #fff;
+	}
+	
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+		background-color: #EFEFEF;
+		color: #555;
+	}
+}	
 
 /*---------------------*/
 /***** Grid Layout *****/
