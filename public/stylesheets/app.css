@@ -101,6 +101,15 @@ a:hover {
 	margin-bottom: 100px
 }
 
+.apple {
+	border: 2px solid black;
+}
+
+.plus-minus-inputs {
+	text-align: center;
+	margin: 15px;
+}
+
 /* Comment styles*/
 .comment-add-btn {
 	width: 60px;
@@ -126,7 +135,6 @@ a:hover {
 	font-size: 12px;
 }
 
-
 #showTable {
 	width: 60%;
 	margin: 50px auto 30px auto;
@@ -141,11 +149,11 @@ a:hover {
 #name-input {
 	display: inline-block;
 	width: 81.65%;
+	margin-right: 10px;
 }
 
 #select-input {
 	display: inline-block;
-	margin-left: 10px;
 }
 
 /*------------------*/
