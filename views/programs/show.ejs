@@ -48,16 +48,19 @@
             <% } %>
             <form action="/workout-programs/<%= program._id %>/comments" method="POST">
                 <div class="form-group">
-                    <textarea type="text" name="comment[text]" placeholder="Please be respectful, civil, and constructive when commenting." rows="7" cols="60" maxlength="3000"></textarea>
+                    <textarea type="text" name="comment[text]" placeholder="Please be respectful, civil, and constructive when commenting." maxlength="3000"></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-sm btn-primary btn-block comment-add-btn">Save!</button>
                 </div>
             </form>
-            <!--comments-->
             <% program.comments.forEach(function(comment){ %>
                 <div class="row">
-                    <div class="col-md-12 comments-border">
+                    <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+                        <div class="col-md-12 comments-border-owner">
+                    <% } else {%>
+                        <div class="col-md-12 comments-border">
+                    <% } %>
                         <strong class="author-blue"><%= comment.author.username %></strong>
                         <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
                         <p>

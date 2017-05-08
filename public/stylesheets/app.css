@@ -17,14 +17,22 @@ select {
 	height: 33.4px;
 }
 
+a:hover {
+	text-decoration: none;
+}
+
 .row h1 {
 	text-align: center;
 }
 
-.navbar-header img {
-	height: 30px;
-	width: 30px;
-	margin-top: -5px;
+/*Fix textarea for responsiveness*/
+.content textarea {
+	width: 50%;
+	height: 150px;
+}
+
+.width-45 textarea {
+	width: 100%;
 }
 
 .accountTable {
@@ -96,11 +104,18 @@ select {
 /* Comment styles*/
 .comment-add-btn {
 	width: 60px;
-	margin-top: -15px;
+	margin-top: -10px;
 }
 
 .comments-border {
 	border: 2px solid red;
+	border-radius: 5px;
+	padding: 15px 15px 10px 15px;
+	margin: 10px 0 0 15px;
+}
+
+.comments-border-owner {
+	border: 2px solid #3085a3;
 	border-radius: 5px;
 	padding: 15px 15px 10px 15px;
 	margin: 10px 0 0 15px;
@@ -133,7 +148,40 @@ select {
 	margin-left: 10px;
 }
 
+/*------------------*/
+/***** 	Navbar 	*****/
+/*------------------*/
+
+.navbar-header img {
+	height: 30px;
+	width: 30px;
+	margin-top: -5px;
+}
+
+.navbar-default {
+	background: #33b1ef;
+}
+
+.navbar-default .navbar-nav > li > a {
+	font-size: 15px;
+	padding-top: 18px;
+	color: #FFF;
+}
+
+/*.navbar-default .navbar-nav>.active>a {*/
+/*	background: none;*/
+/*	color: #555;*/
+/*	border-bottom: 5px solid #555; */
 /*}*/
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+}
+
 /*---------------------*/
 /***** Grid Layout *****/
 /*---------------------*/

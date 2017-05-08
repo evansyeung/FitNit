@@ -1,9 +1,16 @@
 #landing-header {
     position: relative;
+    
     /*This will get it centered horizontally*/
     text-align: center;
     /*This will get it centered vertically*/
-    padding-top:  40vh;
+    /*padding-top: 40vh;*/
+    top: 40vh;
+    
+    /*border: 2px solid black;*/
+	width: 550px;
+	height: 160px;
+	margin: -20px auto 0 auto;
 }
 
 #landing-header h1 {
