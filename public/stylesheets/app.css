@@ -59,15 +59,6 @@ a:hover {
     display: inline;
 }
 
-.backButton {
-	display: block;
-	margin-top: 10px;
-}
-
-.title-Button {
-	margin-bottom: 40px;
-}
-
 .width-45 {
 	width: 45%;
 	margin: 25px auto;
@@ -106,12 +97,51 @@ a:hover {
 	margin-bottom: 100px
 }
 
-.apple {
-	border: 2px solid black;
+.well {
+	border-color: #CAEBF2;
+}
+
+/*-----------------*/
+/***** 	Btns *****/
+/*-----------------*/
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus  {
+	background: #FF3B3F;
+	border: none;
+	color: #fff;
+	outline: none;
+}
+
+.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:focus, .btn-danger:active:focus  {
+	background: #FF3B3F;
+	border: none;
+	color: #fff;
+	outline: none;
+}
+
+.btn-warning, .btn-warning:hover, .btn-warning:active, .btn-warning:focus, .btn-warning:active:focus  {
+	background: #FF3B3F;
+	border: none;
+	color: #fff;
+	outline: none;
+}
+
+.measurement-btn, .measurement-btn:active, .measurement-btn:focus, .measurement-btn:active:focus  {
+	background: #FF3B3F;
+	padding: 10px;
+}
+
+.backButton {
+	display: block;
+	margin-top: 10px;
+}
+
+.title-Button {
+	margin-bottom: 40px;
 }
 
 .plus-minus-inputs {
-	color: red;
+	color: #A9A9A9;
 	text-align: center;
 	margin: 15px;
 }
@@ -129,6 +159,16 @@ a:hover {
 	width: 100%;
 }
 
+.carousel-indicators li {
+	background-color: #FF3B3F;
+	border-color: #FF3B3F;
+}
+
+.carousel-indicators .active {
+	background-color: #EFEFEF;
+	border-color: #EFEFEF;
+}
+
 /*If the browser is smaller than 736px turn off carosel*/
 @media (max-width: 736px) {
 	.carosel-off-at-736 {
@@ -137,6 +177,10 @@ a:hover {
 }
 
 .jumbotron {
+	background: #CAEBF2;
+}
+
+#index-jumbotron {
 	margin-bottom: 0;
 }
 
@@ -156,14 +200,14 @@ a:hover {
 }
 
 .comments-border {
-	border: 2px solid #67BCDB;
+	border: 2px solid #CAEBF2;
 	border-radius: 5px;
 	padding: 15px 15px 10px 15px;
 	margin: 10px 0 0 15px;
 }
 
 .comments-border-owner {
-	border: 2px solid #E44424;
+	border: 2px solid #FF3B3F;
 	border-radius: 5px;
 	padding: 15px 15px 10px 15px;
 	margin: 10px 0 0 15px;
@@ -261,7 +305,7 @@ a:hover {
 		background-color: #EFEFEF;
 	}
 	
-	.navbar-default .navbar-toggle:hover .icon-bar {
+	.navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
 		background-color: #FF3B3F;
 	}
 	
