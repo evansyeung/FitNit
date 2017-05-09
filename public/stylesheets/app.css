@@ -26,6 +26,10 @@ a:hover {
 	text-align: center;
 }
 
+.primary {
+	margin-top: 20px;
+}
+
 /*Fix textarea for responsiveness*/
 .content textarea {
 	width: 50%;
@@ -112,7 +116,40 @@ a:hover {
 	margin: 15px;
 }
 
-/* Comment styles*/
+/*------------------------------*/
+/***** 	Carosel & Jumbotron *****/
+/*------------------------------*/
+
+#carousel-example-generic {
+	height: 400px;
+}
+
+#carousel-example-generic img {
+	height: 400px;
+	width: 100%;
+}
+
+/*If the browser is smaller than 736px turn off carosel*/
+@media (max-width: 736px) {
+	.carosel-off-at-736 {
+		display:  none;
+	}
+}
+
+.jumbotron {
+	margin-bottom: 0;
+}
+
+/*If the browser is larger than 736px turn off jumbotron*/
+@media (min-width: 736px) {
+	.jumbotron-on-at-736 {
+		display: none;
+	}
+}
+
+/*--------------------------*/
+/***** 	Comment Styles 	*****/
+/*--------------------------*/
 .comment-add-btn {
 	width: 60px;
 	margin-top: -10px;
