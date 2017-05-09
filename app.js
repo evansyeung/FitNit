@@ -51,7 +51,7 @@ app.use(function(req, res, next) {
 // ROUTES files
 app.use(indexRoutes);
 app.use("/measurements", measurementRoutes);
-app.use("/", userRoutes);
+app.use("/account", userRoutes);
 app.use("/workout-programs", workOutProgramRoutes);
 app.use("/workout-programs/:id/comments", commentRoutes);
 

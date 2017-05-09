@@ -2,7 +2,7 @@
     <div class="row">
         <h1 style="text-align: center">Account Settings</h1>
         <div class="width-30">
-            <form action="/<%= user._id %>?_method=PUT" method="POST">
+            <form action="/account/<%= user._id %>?_method=PUT" method="POST">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input class="form-control" type="text" name="user[email]" value="<%= user.email %>" required>

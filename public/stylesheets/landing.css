@@ -18,3 +18,10 @@
     font-size: 80px;
     color: #fff;
 }
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:focus, .btn-success:active:focus  {
+	background: #FF3B3F;
+	border: none;
+	color: #fff;
+	outline: none;
+}

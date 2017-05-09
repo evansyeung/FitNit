@@ -18,7 +18,20 @@ select {
 	height: 33.4px;
 }
 
-a:hover {
+label[for=gender] {
+	float: left;
+	clear: none;
+	display: block;
+}
+
+input[type=radio] {
+	float: left;
+	clear: none;
+	margin: 3px 5px 0 10px;
+}
+
+a, a:hover {
+	color: #FF3B3F;
 	text-decoration: none;
 }
 
@@ -26,9 +39,6 @@ a:hover {
 	text-align: center;
 }
 
-.primary {
-	margin-top: 20px;
-}
 
 /*Fix textarea for responsiveness*/
 .content textarea {
@@ -89,7 +99,7 @@ a:hover {
 	margin-right: 10px;
 }
 
-.content {
+.show-content {
 	padding: 10px 50px;
 }
 
@@ -98,7 +108,19 @@ a:hover {
 }
 
 .well {
+	background: #EFEFEF;
 	border-color: #CAEBF2;
+}
+
+/*-----------------*/
+/***** 	Table *****/
+/*-----------------*/
+
+/*Datable page selector color*/
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+	background: #CAEBF2;
+	border-color: #CAEBF2;
+	color: #555;
 }
 
 /*-----------------*/
@@ -125,6 +147,13 @@ a:hover {
 	color: #fff;
 	outline: none;
 }
+
+/*.btn-success, .btn-success:hover, .btn-success:active, .btn-success:focus, .btn-success:active:focus  {*/
+/*	background: #3CC47C;*/
+/*	border: none;*/
+/*	color: #fff;*/
+/*	outline: none;*/
+/*}*/
 
 .measurement-btn, .measurement-btn:active, .measurement-btn:focus, .measurement-btn:active:focus  {
 	background: #FF3B3F;
@@ -169,10 +198,10 @@ a:hover {
 	border-color: #EFEFEF;
 }
 
-/*If the browser is smaller than 736px turn off carosel*/
-@media (max-width: 736px) {
-	.carosel-off-at-736 {
-		display:  none;
+/*If the browser is smaller than 767px turn off carosel*/
+@media (max-width: 767px) {
+	.carosel-off-at-767 {
+		display: none;
 	}
 }
 
@@ -184,9 +213,9 @@ a:hover {
 	margin-bottom: 0;
 }
 
-/*If the browser is larger than 736px turn off jumbotron*/
-@media (min-width: 736px) {
-	.jumbotron-on-at-736 {
+/*If the browser is larger than 768px turn off jumbotron*/
+@media (min-width: 768px) {
+	.jumbotron-on-at-768 {
 		display: none;
 	}
 }
@@ -299,7 +328,7 @@ a:hover {
 }
 
 /*Mobile version*/
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 	/*Sandwhich icon*/
 	.navbar-default .navbar-toggle .icon-bar {
 		background-color: #EFEFEF;
