@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-    <div class="well margin-top-25">
+    <div class="well">
         <div class="content">
             <p><a href="/workout-programs">Home</a> > <a href="/workout-programs/<%= program.category %>" > <%= program.category.charAt(0).toUpperCase() + program.category.slice(1) %></a> > <%= program.name %></p>
             <h1><%= program.name %></h1>
@@ -7,7 +7,7 @@
                 <em>Submitted by: <%= program.author.username %>, <%= moment(program.createdAt).fromNow() %></em>
             </p>
             <p><%- program.description %></p>
-            <table id="showTable" class="table table-hover table-striped">
+            <table id="showTable" class="table table-hover">
                 <col width="50px">
                 <col width="700px">
                 <col width="300px">

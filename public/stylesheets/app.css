@@ -120,7 +120,6 @@ a, a:hover, a:focus, a:active {
 	margin-top: 25px;
 }
 
-
 .well {
 	background: #EFEFEF;
 	border-color: #CAEBF2;
@@ -135,6 +134,24 @@ a, a:hover, a:focus, a:active {
 	background: #CAEBF2;
 	border-color: #CAEBF2;
 	color: #555;
+}
+
+tr {
+	background: #fff;
+}
+
+#showTable {
+	width: 60%;
+	margin: 50px auto 30px auto;
+	border: 2px solid #CAEBF2;
+}
+
+.table>thead>tr>th {
+	border-bottom-color: #CAEBF2;
+}
+
+.table>tbody>tr>td {
+	border-top-color: #CAEBF2;
 }
 
 /*-----------------*/
@@ -162,12 +179,12 @@ a, a:hover, a:focus, a:active {
 	outline: none;
 }
 
-/*.btn-success, .btn-success:hover, .btn-success:active, .btn-success:focus, .btn-success:active:focus  {*/
-/*	background: #3CC47C;*/
-/*	border: none;*/
-/*	color: #fff;*/
-/*	outline: none;*/
-/*}*/
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:focus, .btn-success:active:focus  {
+	background: #3CC47C;
+	border: none;
+	color: #fff;
+	outline: none;
+}
 
 .measurement-btn, .measurement-btn:active, .measurement-btn:focus, .measurement-btn:active:focus  {
 	background: #FF3B3F;
@@ -259,13 +276,6 @@ a, a:hover, a:focus, a:active {
 .author-blue {
 	color: #3085a3;
 	font-size: 12px;
-}
-
-#showTable {
-	width: 60%;
-	margin: 50px auto 30px auto;
-	border-top: 2px solid #ddd;
-	border-bottom: 2px solid #ddd;
 }
 
 #myChart {
