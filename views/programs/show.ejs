@@ -1,6 +1,6 @@
 <% include ../partials/header %>
-    <div class="well">
-        <div class="show-content">
+    <div class="well margin-top-25">
+        <div class="content">
             <p><a href="/workout-programs">Home</a> > <a href="/workout-programs/<%= program.cartegory %>" > <%= program.cartegory.charAt(0).toUpperCase() + program.cartegory.slice(1) %></a> > <%= program.name %></p>
             <h1><%= program.name %></h1>
             <p>
@@ -39,7 +39,7 @@
             <% } %>
         </div>
     </div>
-    <div class="well">
+    <div class="well margin-bottom-50">
         <div class="content">
             <% if(program.comments.length === 1) { %>
                 <h3><%= program.comments.length %> Comment</h3>

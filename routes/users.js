@@ -1,8 +1,23 @@
 var express = require("express");
 var router = express.Router();
+var mongoose = require('mongoose');
 var User = require("../models/user");
+var Program = require("../models/program");
 
 var middleware = require("../middleware");
+
+// SHOW my programs route
+router.get("/:id/my-programs", middleware.checkAccountOwnership, function(req, res) {
+    var id = mongoose.Types.ObjectId(req.user._id);
+    var username = req.user.username;
+    Program.find({"author" : { "id" : id, "username" : username }}, function(err, foundPrograms){
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("users/programs", {programs: foundPrograms, cartegory: req.params.cartegory});
+        }
+    });
+});
 
 // EDIT ROUTE
 router.get("/:id/account-settings", middleware.checkAccountOwnership, function(req, res){

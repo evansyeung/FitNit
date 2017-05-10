@@ -11,7 +11,7 @@ router.get("/", function(req, res){
 
 // INDEX ROUTES for each cartegory
 router.get("/:cartegory", function(req, res) {
-   Program.find({"cartegory": req.params.cartegory}, function(err, foundPrograms){
+    Program.find({"cartegory": req.params.cartegory}, function(err, foundPrograms){
        if(err) {
            console.log(err);
        } else {

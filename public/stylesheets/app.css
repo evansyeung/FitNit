@@ -39,6 +39,11 @@ a, a:hover {
 	text-align: center;
 }
 
+.content {
+	padding: 10px 50px 0 20px;
+}
+
+
 
 /*Fix textarea for responsiveness*/
 .content textarea {
@@ -99,13 +104,22 @@ a, a:hover {
 	margin-right: 10px;
 }
 
-.show-content {
-	padding: 10px 50px;
-}
-
 .margin-bottom-100 {
 	margin-bottom: 100px
 }
+
+.margin-bottom-50 {
+	margin-bottom: 50px;
+}
+
+.margin-top-50 {
+	margin-top: 50px;
+}
+
+.margin-top-25 {
+	margin-top: 25px;
+}
+
 
 .well {
 	background: #EFEFEF;

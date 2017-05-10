@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+    <h1>My Programs</h1>
+    <table id="myProgramTable" class="table table-hover table-striped">
+        <col width="75">
+        <col width="370">
+        <col width="100">
+        <col width="500">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0; i < programs.length; i++) { %>
+                <tr>
+                    <td scope="row"><%= i+1 %></td>
+                    <td>
+                        <a href="/workout-programs/<%= programs[i].cartegory %>/<%= programs[i]._id %>">
+                            <strong><%= programs[i].name %></strong>
+                        </a>
+                        <p>
+                            <em>Submitted by <%= programs[i].author.username %></em>
+                        </p>
+                    </td>
+                    <td><%= programs[i].cartegory.charAt(0).toUpperCase() + programs[i].cartegory.slice(1) %></td>
+                    <td><%- programs[i].description.substring(0, 180) %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    
+    <!--jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!--Bootstrap DataTable JS CDN-->
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <!-- Bootstrap JS CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <script>
+        $(document).ready(function() {
+           $('#myProgramTable').DataTable();
+       });
+    </script>
+    </body>
+</html>
