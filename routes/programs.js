@@ -9,13 +9,13 @@ router.get("/", function(req, res){
    res.render("programs/index",{ page: 'workout-programs' }) ;
 });
 
-// INDEX ROUTES for each cartegory
-router.get("/:cartegory", function(req, res) {
-    Program.find({"cartegory": req.params.cartegory}, function(err, foundPrograms){
+// INDEX ROUTES for each category
+router.get("/:category", function(req, res) {
+    Program.find({"category": req.params.category}, function(err, foundPrograms){
        if(err) {
            console.log(err);
        } else {
-           res.render("programs/" + req.params.cartegory, {programs: foundPrograms, cartegory: req.params.cartegory});
+           res.render("programs/" + req.params.category, {programs: foundPrograms, category: req.params.category});
        }
    });
 });
@@ -23,7 +23,7 @@ router.get("/:cartegory", function(req, res) {
 // CREATE ROUTE
 router.post("/",  middleware.isLoggedIn, function(req, res){
     var name = req.body.name;
-    var cartegory = req.body.cartegory;
+    var category = req.body.category;
     var date = req.body.date;
     var description = req.body.description;
     var exercises = req.body.exercises;
@@ -34,7 +34,7 @@ router.post("/",  middleware.isLoggedIn, function(req, res){
         username: req.user.username
     };
     
-    var newProgram = {name: name, cartegory: cartegory, date: date, description: description, exercises: exercises, sets: sets, reps: reps, author: author};
+    var newProgram = {name: name, category: category, date: date, description: description, exercises: exercises, sets: sets, reps: reps, author: author};
     
     Program.create(newProgram, function(err, program){
         if(err) {
@@ -47,11 +47,11 @@ router.post("/",  middleware.isLoggedIn, function(req, res){
 });
 
 // NEW ROUTE
-router.get("/:cartegory/new", middleware.isLoggedIn, function(req, res){
-    res.render("programs/new", { cartegory: req.params.cartegory});
+router.get("/:category/new", middleware.isLoggedIn, function(req, res){
+    res.render("programs/new", { category: req.params.category});
 });
 
-// SHOW ROUTE - 6 for each cartegory
+// SHOW ROUTE - 6 for each category
 router.get("/chest/:id", function(req, res) {
     Program.findById(req.params.id).populate("comments").exec(function(err, foundProgram){
         if(err) {
@@ -132,7 +132,7 @@ router.put("/:id", middleware.checkProgramOwnership, function(req, res){
            res.redirect("/workout-programs");
        } else {
            req.flash("success", "Successfully edited measurement");
-           res.redirect("/workout-programs/" + req.body.program.cartegory + "/" + req.params.id);
+           res.redirect("/workout-programs/" + req.body.program.category + "/" + req.params.id);
        }
     });
 });

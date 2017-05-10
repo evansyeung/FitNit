@@ -61,13 +61,13 @@ middlewareObj.checkProgramOwnership = function(req, res, next) {
         Program.findById(req.params.id, function(err, foundProgram){
           if(err) {
             req.flash("error", "Program not found");
-            res.redirect("/workout-programs/" + foundProgram.cartegory);
+            res.redirect("/workout-programs/" + foundProgram.category);
           } else {
               if(foundProgram.author.id.equals(req.user._id)) {
                   next();
               } else {
                   req.flash("error", "You don't have permission to do that");
-                  res.redirect("/workout-programs" + foundProgram.cartegory + "/" + foundProgram._id);
+                  res.redirect("/workout-programs" + foundProgram.category + "/" + foundProgram._id);
               }
           }
         });

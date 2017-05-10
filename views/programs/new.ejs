@@ -9,8 +9,8 @@
                         <input class="form-control" type="text" name="name" placeholder="name" maxlength="60" required>
                     </div>
                     <div id="select-input">
-                        <label for="cartegory">Body Part</label>
-                        <select name="cartegory" required>
+                        <label for="category">Body Part</label>
+                        <select name="category" required>
                             <option selected disabled> </option>
                             <option value="chest">Chest</option>
                             <option value="legs">Legs</option>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label for="sets">Sets</label>
-                    <input class="form-control" type="number" name="sets" placeholder="sets" min="1" step="1" required>
+                    <input class="form-control" type="number" name="sets" placeholder="sets" min="1" max="20" step="1" required>
                 </div>
                 <div class="form-group">
                     <label for="reps">Reps</label>
@@ -45,7 +45,7 @@
                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>
                 </div>
             </form>
-            <a href="/workout-programs/<%= cartegory %>">Go Back</a>
+            <a href="/workout-programs/<%= category %>">Go Back</a>
         </div>
     </div>
 <% include ../partials/footer %>

@@ -18,14 +18,14 @@
                 <tr>
                     <td scope="row"><%= i+1 %></td>
                     <td>
-                        <a href="/workout-programs/<%= programs[i].cartegory %>/<%= programs[i]._id %>">
+                        <a href="/workout-programs/<%= programs[i].category %>/<%= programs[i]._id %>">
                             <strong><%= programs[i].name %></strong>
                         </a>
                         <p>
                             <em>Submitted by <%= programs[i].author.username %></em>
                         </p>
                     </td>
-                    <td><%= programs[i].cartegory.charAt(0).toUpperCase() + programs[i].cartegory.slice(1) %></td>
+                    <td><%= programs[i].category.charAt(0).toUpperCase() + programs[i].category.slice(1) %></td>
                     <td><%- programs[i].description.substring(0, 180) %></td>
                 </tr>
             <% } %>

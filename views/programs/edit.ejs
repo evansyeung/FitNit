@@ -9,8 +9,8 @@
                         <input class="form-control" type="text" name="program[name]" placeholder="name" maxlength="60" value="<%= program.name %>" required>
                     </div>
                     <div id="select-input">
-                        <label for="cartegory">Body Part</label>
-                        <select name="program[cartegory]" value="<%= program.cartegory %>" required>
+                        <label for="category">Body Part</label>
+                        <select name="program[category]" value="<%= program.category %>" required>
                             <option value="chest">Chest</option>
                             <option value="legs">Legs</option>
                             <option value="back">Back</option>
@@ -44,7 +44,7 @@
                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>
                 </div>
             </form>
-            <a href="/workout-programs/<%= program.cartegory %>/<%= program._id %>">Go Back</a>
+            <a href="/workout-programs/<%= program.category %>/<%= program._id %>">Go Back</a>
         </div>
     </div>
 <% include ../partials/footer %>

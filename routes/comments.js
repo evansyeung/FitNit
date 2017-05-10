@@ -10,17 +10,6 @@ var middleware = require("../middleware");
 // COMMENTS ROUTES
 // ==================
 
-// NEW ROUTE - go to comment form
-router.get("/new", middleware.isLoggedIn, function(req, res){
-    Program.findById(req.params.id, function(err, foundProgram){
-       if(err) {
-           console.log(err);
-       } else {
-           res.render("comments/new", {program: foundProgram});
-       } 
-    });
-});
-
 // CREATE ROUTE
 router.post("/", middleware.isLoggedIn, function(req, res){
     Program.findById(req.params.id, function(err, foundProgram) {
@@ -46,7 +35,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
                    foundProgram.save();
                    
                    req.flash("success", "Successfully added comment");
-                   res.redirect("/workout-programs/" + foundProgram.cartegory + "/" + foundProgram._id);
+                   res.redirect("/workout-programs/" + foundProgram.category + "/" + foundProgram._id);
                }
            });
        }
@@ -82,7 +71,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
               if(err) {
                   res.redirect("back");
               } else {
-                  res.redirect("/workout-programs/" + foundProgram.cartegory + "/" + req.params.id)
+                  res.redirect("/workout-programs/" + foundProgram.category + "/" + req.params.id)
               }
           });
        }
@@ -102,7 +91,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
                     res.redirect("back");
                 } else {
                     req.flash("success", "Successfully deleted comment");
-                    res.redirect("/workout-programs/" + foundProgram.cartegory + "/" + req.params.id);
+                    res.redirect("/workout-programs/" + foundProgram.category + "/" + req.params.id);
                 }
             });
         }

@@ -14,7 +14,7 @@ router.get("/:id/my-programs", middleware.checkAccountOwnership, function(req, r
         if(err) {
             console.log(err);
         } else {
-            res.render("users/programs", {programs: foundPrograms, cartegory: req.params.cartegory});
+            res.render("users/programs", {programs: foundPrograms, category: req.params.category});
         }
     });
 });
