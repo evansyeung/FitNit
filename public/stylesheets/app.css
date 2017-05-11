@@ -400,6 +400,13 @@ tr {
 	cursor: pointer;
 }
 
+.grid img, figure {
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .grid figure img {
 	position: relative;
 	display: block;
