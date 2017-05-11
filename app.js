@@ -17,7 +17,9 @@ var indexRoutes             = require("./routes/index"),
     workOutProgramRoutes    = require("./routes/programs"),
     userRoutes              = require("./routes/users");
 
-mongoose.connect("mongodb://localhost/fitnit");
+// mongoose.connect("mongodb://localhost/fitnit");
+var url = process.env.DATABASEURL || "mongodb://localhost/fitnit";
+mongoose.connect(process.env.DATABASEURL);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
