@@ -30,7 +30,8 @@
     </div>
     <canvas id="myChart" width="600" height="600"></canvas>
     
-    
+    <!--Moment.js CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <!--Charts.js CDN-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
     <!--jQuery CDN-->
@@ -49,6 +50,20 @@
     
     <!--Create weight line chart-->
     <script>
+        // Returns a date used for our x-axis labels
+        function newDate(day, month) {
+            console.log(moment().month(month).date(day));
+            return moment().month(month).date(day);
+        }
+        
+        // Get max weight
+        var max = 0;
+        <% measurements.forEach(function(measurement){ %>
+            if(<%= measurement.weight %> >= max) {
+                max = <%= measurement.weight %>;
+            }
+        <% }) %>
+        
         var ctx = document.getElementById('myChart').getContext('2d');
         var data = {
             labels: [],
@@ -56,48 +71,154 @@
                 {
                     label: "Weight",
                     fill: true,
-                    lineTension: 0.1,
-                    backgroundColor: "rgba(75,75,192,0.1)",
-                    borderColor: "rgba(75,75,192,1)",
+                    lineTension: 0.4,
+                    backgroundColor: "rgba(60,196,124,0.2)",
+                    borderColor: "rgba(255,255,255,1)",
                     borderCapStyle: 'butt',
                     borderDash: [],
                     borderDashOffset: 0.0,
                     borderJoinStyle: 'miter',
-                    pointBorderColor: "rgba(75,72,192,1)",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
+                    pointBorderColor: "rgba(255,255,255,1)",
+                    pointBackgroundColor: "#3CC47C",
+                    pointBorderWidth: 3,
                     pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,72,192,1)",
-                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
+                    pointHoverBackgroundColor: "rgba(255,255,255,1)",
+                    pointHoverBorderColor: "rgba(60,196,124,1)",
+                    pointHoverBorderWidth: 3,
+                    pointRadius: 5,
+                    pointHitRadius: 10,
+                    data: [],
+                    spanGaps: false,
+                },
+                {
+                    label: "Chest",
+                    fill: true,
+                    lineTension: 0.4,
+                    backgroundColor: "rgba(252,147,65,0.5)",
+                    borderColor: "rgba(255,255,255,1)",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(255,255,255,1)",
+                    pointBackgroundColor: "#FC9341",
+                    pointBorderWidth: 3,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(255,255,255,1)",
+                    pointHoverBorderColor: "rgba(252,147,65,1)",
+                    pointHoverBorderWidth: 3,
+                    pointRadius: 5,
+                    pointHitRadius: 10,
+                    data: [],
+                    spanGaps: false,
+                },
+                {
+                    label: "Waist",
+                    fill: true,
+                    lineTension: 0.4,
+                    backgroundColor: "rgba(162,239,255,0.5)",
+                    borderColor: "rgba(255,255,255,1)",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(255,255,255,1)",
+                    pointBackgroundColor: "#A2EFFF",
+                    pointBorderWidth: 3,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(255,255,255,1)",
+                    pointHoverBorderColor: "rgba(162,239,255,1)",
+                    pointHoverBorderWidth: 3,
+                    pointRadius: 5,
+                    pointHitRadius: 10,
+                    data: [],
+                    spanGaps: false,
+                },
+                {
+                    label: "Hip",
+                    fill: true,
+                    lineTension: 0.4,
+                    backgroundColor: "rgba(220,20,60,0.5)",
+                    borderColor: "rgba(255,255,255,1)",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(255,255,255,1)",
+                    pointBackgroundColor: "#DC143C",
+                    pointBorderWidth: 3,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(255,255,255,1)",
+                    pointHoverBorderColor: "rgba(220,20,60,1)",
+                    pointHoverBorderWidth: 3,
+                    pointRadius: 5,
                     pointHitRadius: 10,
                     data: [],
                     spanGaps: false,
                 }
-            ],
-            options: {
-                scales: {
-                    xAxes: [{
-                        type: 'time',
-                        time: {
-                            displayFormats: {
-                                day: 'MMM DD'
-                            }
-                        },
-                    }]
-                }
-            }
+            ]
         };
         
+        var options = {
+            title: {
+                display: true,
+                fontSize: 20,
+                fontFamily: 'Raleway',
+                text: 'Measurements'
+            },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        autoSkip : true,
+                    },
+                    type: 'time',
+                    time: {
+                      displayFormats: {
+                        'millisecond': 'M/DD',
+                        'second': 'M/DD',
+                        'minute': 'M/DD',
+                        'hour': 'M/DD',
+                        'day': 'M/DD',
+                        'week': 'M/DD',
+                        'month': 'M/DD',
+                        'quarter': 'M/DD',
+                        'year': 'M/DD',
+                      },
+                      unitStepSize: 1,
+                      unit: 'day',
+                    },
+                    gridLines : {
+                        display : false,
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        max: max + 70,
+                        min: 0,
+                        stepSize: 10,
+                    }
+                }]
+            }
+        }
+        
         <% measurements.forEach(function(measurement){ %>
-            data.labels.push('Jan');
+            // This is for string format below is for date obj
+            // var date = month + "/" + day;
+            // data.labels.push(date);
+        
+            var month = <%= moment(measurement.createdAt).format("MM").toString() %>;
+            var day = <%= moment(measurement.createdAt).format("DD") %>;
+            data.labels.push(newDate(day, month-1));
             data.datasets[0].data.push(<%= measurement.weight %>);
+            data.datasets[1].data.push(<%= measurement.chest %>);
+            data.datasets[2].data.push(<%= measurement.waist %>);
+            data.datasets[3].data.push(<%= measurement.hip %>);
         <% }) %>
        
        var myChart = new Chart(ctx, {
            type: 'line',
-           data: data
+           data: data,
+           options: options
        });
     </script>
     </body>

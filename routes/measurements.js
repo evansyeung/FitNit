@@ -1,7 +1,7 @@
-var express = require("express");
-var mongoose = require('mongoose');
-var router = express.Router();
-var Measurement = require("../models/measurement");
+var express         = require("express");
+var mongoose        = require('mongoose');
+var router          = express.Router();
+var Measurement     = require("../models/measurement");
 
 var middleware = require("../middleware");
 
