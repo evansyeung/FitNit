@@ -19,7 +19,7 @@ var indexRoutes             = require("./routes/index"),
 
 // mongoose.connect("mongodb://localhost/fitnit");
 var url = process.env.DATABASEURL || "mongodb://localhost/fitnit";
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(url);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
