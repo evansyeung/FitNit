@@ -11,12 +11,7 @@
                     <div id="select-input">
                         <label for="category">Body Part</label>
                         <select name="program[category]" value="<%= program.category %>" required>
-                            <option value="chest">Chest</option>
-                            <option value="legs">Legs</option>
-                            <option value="back">Back</option>
-                            <option value="shoulder">Shoulder</option>
-                            <option value="arm">Arms</option>
-                            <option value="other">Other</option>
+                            <option value="<%= program.category %>"><%= program.category[0].toUpperCase() + program.category.substring(1, program.category.length) %></option>
                         </select>
                     </div>
                 </div>
@@ -36,7 +31,7 @@
                         </div>
                         <div class="rep-input">
                             <label for="reps">Reps</label>
-                            <input class="form-control" type="text" name="program[reps]" placeholder="reps" value="<%= program.reps[i] %>" required>
+                            <input class="form-control" type="text" name="program[reps]" placeholder="reps"  maxlength="70" value="<%= program.reps[i] %>" required>
                         </div>
                     </div>
                 <% } %>
