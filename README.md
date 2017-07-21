@@ -1,6 +1,6 @@
 # FitNit
 
-FitNit is a website where users can create and review workout programs and tracking their own progress by recording body measurements. This is a place where fitness enthusiast can commnunicate with fellow enthusiast about their programs and progress.
+FitNit is a website where users can create and review workout programs and tracking their own progress by recording body measurements. This is a place where fitness enthusiast can communicate with fellow enthusiast about their programs and progress.
 
 ## How to use:
 
